@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{% url 'home' %}">ホーム</a></li>
+<li class="nav-item"><a class="nav-link active" href="{% url 'company' %}">会社案内</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'business' %}">事業内容</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'equips' %}">保有設備</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">お問い合わせ</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="c-pagetitle p-pagetitle">
+    <div class="c-pagetitle__image p-pagetitle__image">
+        <img src="{% static 'images/company-pagetitle.jpg' %}" width="2000" height="500" alt=""></div>
+    <h2 class="c-title" data-label="Company">会社案内</h2>
+</div>
+
+<div class="l-outer p-outer">
+    <div class="l-outer__liquid">
+        <div class="l-outer__main">
+            <div class="l-section l-section__clearance p-company__message">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light c-heading__margin--first" data-aos="fade-right"
+                        data-heading="Message"><span class="p-text__shadow--white">ご挨拶</span></h3>
+                    <p data-aos="fade-left">メカニカルネットワークスから創業した弊社は、各種専用機・搬送機・治具などの設計製作を行なっております。<br>豊富なネットワーク・各分野のスペシャリストによる協力体制により、設計〜据付までのワンストップ製作・特急対応・多品種少量生産・大量注文など<br>お客様のどんなご要望にもお応えします。<br>モノづくりの便利屋として、&ldquo;Do
+                        Anything&rdquo; の精神で精一杯取り組んでまいります。</p>
+                    <p class="c-signature text-end" data-aos="fade-right">{{cpn_info.delegate}}</p>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-company__outline">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light c-heading__margin--first" data-aos="fade-right"
+                        data-heading="Outline"><span class="p-text__shadow--white">会社概要</span></h3>
+
+                    <table class="c-table c-table__break--xs c-table__line--horizontal c-th__vertical c-table__mode--light"
+                           data-aos="fade-left">
+                        <tr>
+                            <th scope="row">会社名</th>
+                            <td>{{cpn_info.name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">代表者</th>
+                            <td>{{cpn_info.delegate}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">設立</th>
+                            <td>{{cpn_info.formation}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">資本金</th>
+                            <td>{{cpn_info.capital}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">年商</th>
+                            <td>{{cpn_info.annual_revenue}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">所在地</th>
+                            <td>{{cpn_info.address}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">TEL</th>
+                            <td><span data-action="call">{{cpn_info.phone}}</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">FAX</th>
+                            <td>{{cpn_info.fax}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">従業員数</th>
+                            <td>{{cpn_info.employees_quantity}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">事業内容</th>
+                            <td>{{cpn_info.business}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">納入実績</th>
+                            <td>
+                                {{cpn_info.delivery_record}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-company__access">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light c-heading__margin--first" data-aos="fade-right"
+                        data-heading="Access"><span class="p-text__shadow--white">アクセスマップ</span></h3>
+
+                    <div class="u-space__devider--lg">
+                        <div class="c-frame__line" data-aos="fade-left">
+                            <div class="ratio u-ratio--xs-1x1 u-ratio--sm-16x9 u-ratio--md-16x9 u-ratio--lg-16x9 u-ratio--xl-16x9 u-ratio--xxl-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.1257564371986!2d136.89868757576983!3d35.27799947272006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003754f8fbcf8db%3A0xb2edf5d97c324266!2z44Oh44Kr44ON44OD44OI5qCq5byP5Lya56S-!5e0!3m2!1sja!2sjp!4v1705461609711!5m2!1sja!2sjp"
+                                        width="800" height="600" title="アクセスマップ"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-space__devider--lg">
+                        <h4 class="c-heading p-heading__page2--light" data-aos="fade-right"><strong
+                                class="p-text__shadow--white c-heading__leftline">本社工場</strong></h4>
+
+                        <div class="row f-column__gap--lg">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div data-aos="fade-up">
+                                    <img src="{% static 'images/company-access__picture01.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div data-aos="fade-up">
+                                    <img src="{% static 'images/company-access__picture02.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-company__recruit">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light c-heading__margin--first" data-aos="fade-right"
+                        data-heading="Recruit"><span class="p-text__shadow--white">採用情報</span></h3>
+
+                    <h4 class="c-heading p-heading__page2--light" data-aos="fade-right"><strong
+                            class="p-text__shadow--white c-heading__leftline">募集要項</strong></h4>
+
+                    <table class="c-table c-table__break--xs c-table__line--horizontal c-th__vertical c-table__mode--light"
+                           data-aos="fade-left">
+                        <tr>
+                            <th scope="row">募集職種</th>
+                            <td>
+                                {% for vcc in job_vcc %}
+                                {{vcc.job_vacancy}}・
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">具体的な内容</th>
+                            <td>
+                                <dl class="p-table__recruit--inner">
+                                    {% for vcc in job_vcc %}
+                                    <dt>{{vcc.job_vacancy}}</dt>
+                                    <dd>{{vcc.describe}}</dd>
+                                    {% endfor %}
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">応募資格</th>
+                            <td>{{rcm_rq.condition}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">勤務地</th>
+                            <td>{{rcm_rq.workplace}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">勤務時間</th>
+                            <td>{{rcm_rq.working_hours}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">給与</th>
+                            <td>{{rcm_rq.salary}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">福利厚生</th>
+                            <td>{{rcm_rq.benefits}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">休日、休暇</th>
+                            <td>{{rcm_rq.holiday}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="l-outer__side"></div>
+    </div>
+</div>
+{% endblock %}

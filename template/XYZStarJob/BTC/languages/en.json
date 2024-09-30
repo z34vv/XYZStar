@@ -1,0 +1,31 @@
+
+{
+    "header": {
+        "home"          : "HOME",
+        "introduce"     : "INTRODUCE",
+        "product"       : "PRODUCT",
+        "knowledge"     : "SPECIALIZED KNOWLEDGE",
+        "news"          : "NEWS",
+        "contact"       : "CONTACT",
+        "recruitment"   : "RECRUITMENT",
+        "search-placeholder": "Enter keyword...",
+        "social": "Social network"
+    },
+    "content": {
+        "heading": "LIST OF PRODUCTS",
+        "detail-heading": "PRODUCT DETAILS"
+    },
+    "footer": {
+        "address": "Address",
+        "statistical-access": "STATISTICAL ACCESS",
+        "online": "Online",
+        "weekly-statistics": "Weekly Statistics",
+        "month-statistics": "Month Statistics",
+        "total": "Total",
+        "sign-up-for": "SIGN UP FOR",
+        "send": "SEND",
+        "placeholder": "Enter your email...",
+        "design": "Professional website design",
+        "by": "by"
+    }
+}

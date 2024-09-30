@@ -1,0 +1,30 @@
+{
+    "header": {
+        "home"          : "TRANG CHỦ",
+        "introduce"     : "GIỚI THIỆU",
+        "product"       : "SẢN PHẨM",
+        "knowledge"     : "KIẾN THỨC CHUYÊN NGÀNH",
+        "news"          : "TIN TỨC",
+        "contact"       : "LIÊN HỆ",
+        "recruitment"   : "TUYỂN DỤNG",
+        "search-placeholder": "Nhập từ khóa...",
+        "social": "Mạng xã hội"
+    },
+    "content": {
+        "heading": "DANH SÁCH SẢN PHẨM",
+        "detail-heading": "CHI TIẾT SẢN PHẨM"
+    },
+    "footer": {
+        "address": "Địa chỉ",
+        "statistical-access": "THỐNG KÊ TRUY CẬP",
+        "online": "Đang Online",
+        "weekly-statistics": "Thống kê tuần",
+        "month-statistics": "Thống kê tháng",
+        "total": "Tổng",
+        "sign-up-for": "ĐĂNG KÝ NHẬN TIN",
+        "send": "GỬI",
+        "placeholder": "Nhập email của bạn...",
+        "design": "Thiết kế website chuyên nghiệp",
+        "by": "bởi"
+    }
+}

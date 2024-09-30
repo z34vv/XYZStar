@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+{% load static %}
+<head>
+<meta charset="utf-8">
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XYZ Star</title>
+<meta name="keywords" content="設備・設計製作,製缶,メカネット株式会社,愛知県,小牧市,部品制作,現地工事">
+<meta name="description" content="愛知県小牧市にあるメカネット株式会社は、設計・機械加工・製缶をはじめ、各種専用機・搬送機・治具等の一貫製作を行っております。 設計～据付までの一貫注文、短納期、多品種少ロット、大量注文など、 お客様のどんなご要望にもお応えできます様、 精一杯取り組んでいます。">
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+<meta name="theme-color" content="rgb(255,255,255)">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/utility.css' %}">
+<link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+<link rel="stylesheet" href="{% static 'css/bs4-print.css' %}">
+<link href="{% static 'ez_css/system.css' %}" rel="stylesheet">
+</head>
+
+<body id="heading">
+<header class="l-header p-header">
+	<h1 class="l-header__logo p-header__logo">
+		<a href="{% url 'home' %}">
+			<img src="{% static 'images/common/logo.png' %}" width="276" height="64" alt="">
+		</a>
+	</h1>
+
+	<div class="l-header__nav p-header__nav">
+		<div class="l-header__nav--navbar p-header__nav--navbar">
+			<nav class="navbar navbar-expand-lg">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="MENU" tabindex="1" accesskey="3"><span class="navbar-toggler-icon"></span><small>MENU</small></button>
+
+				<div class="collapse navbar-collapse" id="navbar">
+					<div class="container-fluid">
+						<ul class="navbar-nav">
+							{% block nav %}{% endblock %}
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main class="l-wrapper">
+	{% block content %}{% endblock %}
+</main>
+
+<footer class="l-footer p-footer u-print__pagebreak--before">
+	<div class="l-footer__contact p-footer__contact">
+		<div class="container-lg">
+			<h3 class="c-heading p-heading__index1--dark text-center c-heading__margin" data-heading="Contact"><span>お問い合わせ</span></h3>
+
+			<div class="u-space__devider--lg">
+				<div class="row f-column__gap--sm justify-content-center">
+					<div class="col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 col-xxl-4">
+						<div class="c-phone--lg c-label__phone text-center"><span data-action="call">{{cpn_info.phone}}</span></div>
+
+						<p class="p-footer__contact--recept">受付 8:00～17:00</p>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 col-xxl-4 d-flex">
+						<a href="{% url 'contact' %}" class="c-button__link c-button__height--flat c-button__texture--multiply c-button__motion--right"><span class="u-icon__mail">メールフォーム</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="l-footer__information p-footer__information">
+		<div class="container-lg">
+			<div class="row f-column__gap--sm">
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 col-xxl-5">
+					<h3 class="l-footer__logo p-footer__logo"><img src="{% static 'images/common/logo.png' %}" alt="メカネット株式会社" width="646" height="82"></h3>
+
+					<address class="l-footer__location p-footer__location">
+						<div class="l-footer__location--pzip p-footer__location--pzip">{{cpn_info.zip_code}}</div>
+						<div class="l-footer__location--address p-footer__location--address">{{cpn_info.address}}</div>
+						<div class="l-footer__location--gmaps p-footer__location--googlemaps"><a href="https://maps.app.goo.gl/odrAt5apyFGNgcep6" target="_blank"><i class="fa fa-map-marker-alt"></i></a></div>
+					</address>
+
+					<address class="l-footer__location p-footer__location">
+						<div class="l-footer__location--phone p-footer__location--phone"><span data-action="call">{{cpn_info.phone}}</span></div>
+						<div class="l-footer__location--facsimile p-footer__location--facsimile">{{cpn_info.fax}}</div>
+					</address>
+				</div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7 col-xxl-7">
+					<div class="l-footer__sitemap p-footer__sitemap">
+						<nav aria-label="footer-sitemap">
+							<ul class="l-footer__sitemap--menu l-footer__sitemap--horizontal">
+								<li class="l-footer__sitemap--item"><a class="l-footer__sitemap--link" href="{% url 'home' %}">ホーム</a></li>
+								<li class="l-footer__sitemap--item"><a class="l-footer__sitemap--link" href="{% url 'company' %}">会社案内</a></li>
+								<li class="l-footer__sitemap--item"><a class="l-footer__sitemap--link" href="{% url 'business' %}">事業内容</a></li>
+								<li class="l-footer__sitemap--item"><a class="l-footer__sitemap--link" href="{% url 'equips' %}">保有設備</a></li>
+								<li class="l-footer__sitemap--item"><a class="l-footer__sitemap--link" href="{% url 'contact' %}">お問い合わせ</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="l-footer__copyright p-footer__copyright--lg">© 2024 XYZStar Company</div>
+</footer>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/splide.min.js' %}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const mySplide = new Splide('.js-mainimage', {
+		type: 'fade',
+		rewind: true,
+		speed: 3000,
+		autoplay: true,
+		interval: 6000,
+		arrows: false,
+		pagination: false,
+		drag: false,
+		swipe: false,
+		pauseOnHover: false,
+		pauseOnFocus: false,
+		keyboard: false,
+	}).mount();
+});
+</script>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/ax.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

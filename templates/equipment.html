@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{% url 'home' %}">ホーム</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'company' %}">会社案内</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'business' %}">事業内容</a></li>
+<li class="nav-item"><a class="nav-link active" href="{% url 'equips' %}">保有設備</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">お問い合わせ</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="c-pagetitle p-pagetitle">
+    <div class="c-pagetitle__image p-pagetitle__image">
+        <img src="{% static 'images/equipments-pagetitle.jpg' %}" width="2000" height="500" alt="">
+    </div>
+    <h2 class="c-title" data-label="Equipments">保有設備</h2>
+</div>
+
+<div class="l-outer p-outer">
+    <div class="l-outer__liquid">
+        <div class="l-outer__main">
+            <div class="l-section l-section__clearance p-equipments__machine">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light text-center c-heading__margin--first"
+                        data-aos="fade-right" data-heading="Machine"><span class="p-text__shadow--white">設備概要</span>
+                    </h3>
+
+                    <div class="u-space__devider--lg">
+                        <div class="row f-column__gap--sm justify-content-center">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-9 col-xxl-8">
+                                <div class="u-space__devider--sm">
+                                    <div class="p-list__columns" data-aos="fade-left">
+                                        <ul class="c-list__disc">
+                                            {% for equip in equips %}
+                                            <li>{{equip.quantity}} {{equip.name}}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="u-space__devider--sm">
+                                    <p class="c-kome" data-aos="fade-left">
+                                        協力企業にて門型加工機・5軸加工機・大物製缶も対応可能です。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-space__devider--lg">
+                        <div class="row f-column__gap--sm justify-content-center">
+                            {% for equip in equips %}
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 col-xxl-4">
+                                <div class="c-box--sm c-box__line--all u-bgc__white" data-aos="fade-up">
+                                    <div class="c-box__image">
+                                        <img src="{{MEDIA_URL}}/media/{{equip.image}}" class="img-fluid mx-auto"
+                                             alt="" width="1200" height="800">
+                                    </div>
+                                    <h4 class="c-box__heading--light c-box__heading--xs">{{equip.name}}</h4>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-equipments__factory">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light text-center c-heading__margin--first"
+                        data-aos="fade-right" data-heading="Factory"><span class="p-text__shadow--white">第2工場</span>
+                    </h3>
+
+<!--                    <div class="u-space__devider&#45;&#45;lg">-->
+<!--                        <div class="c-frame__line" data-aos="fade-left">-->
+<!--                            <div class="ratio u-ratio&#45;&#45;xs-1x1 u-ratio&#45;&#45;sm-16x9 u-ratio&#45;&#45;md-16x9 u-ratio&#45;&#45;lg-16x9 u-ratio&#45;&#45;xl-16x9 u-ratio&#45;&#45;xxl-16x9">-->
+<!--                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3257.0280438507334!2d136.9044811!3d35.280429!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60030caacd6691fb%3A0x20607b7868b387f3!2z44CSNDg1LTAwNTkg5oSb55-l55yM5bCP54mn5biC5bCP5pyo5p2x77yR5LiB55uu77yR77yS77yZ!5e0!3m2!1sja!2sjp!4v1705470616540!5m2!1sja!2sjp"-->
+<!--                                        width="800" height="600" title="アクセスマップ"></iframe>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="u-space__devider--lg">
+                        <div class="row f-column__gap--lg">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div data-aos="fade-up">
+                                    <img src="{% static 'images/equipments-factory__picture01.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div data-aos="fade-up">
+                                    <img src="{% static 'images/equipments-factory__picture02.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="l-outer__side"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,244 @@
+.content {
+    padding: 32px 32px 64px 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.side-bar{
+    width: 250px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.menu {
+    border: 1px solid #d7d7d7;
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+    margin-top: -6px;
+    overflow: hidden;
+    height: 294px;
+    
+}
+
+.wrapper-menu-item {
+    display: flex;
+    flex-direction: column;
+}
+.child-menu-item {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-84px);
+    transition: all 0.25s ease-in-out;
+}
+
+.menu-item {
+    text-decoration: none;
+    padding: 10px 24px;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #d7d7d7;
+    font-weight: 500;
+}
+
+.menu-item.bg_ok {
+    padding-top: 10px;
+    background-color: #fff;
+    position: relative;
+    z-index: 99;
+}
+
+.menu-item:hover {
+    color: red;
+}
+
+.menu-item-icon {
+    margin-right: 8px;
+    color: #333 !important;
+}
+
+.product {
+    width: 950px;
+    padding-left: 32px;
+}
+
+.product-heading{
+    color: #0a45b1;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0a45b1;
+    margin: 0 6px;
+}
+
+.social-item-icon {
+    display: inline-block;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+}
+
+.product-info {
+    display: flex;
+    padding-top: 32px;
+    padding-right: 8px;
+}
+
+.product-detail-info{
+    flex: 1;
+    padding-left: 24px;
+}
+
+.name-product{
+    color: #0a45b1;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.wrap-des {
+    padding: 8px 0;
+    font-size: 15px;
+}
+
+.price-product{
+    font-size: 20px;
+    font-weight: 500;
+    color: #595959;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.product-preview {
+    width: 455px;
+    padding: 6px;
+}
+
+.wraper-preview {
+    background-color: #eeeeee;
+    border-radius: 6px;
+    padding: 12px 12px;
+    width: 100%;
+    display: flex;
+}
+
+.wraper-preview img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.social-item-icon.fb {
+    background-color: #3b5998;
+}
+.social-item-icon.tw {
+    background-color: #1da1f2;
+}
+.social-item-icon.pr {
+    background-color: #738a8d;
+}
+.social-item-icon.mail {
+    background-color: #848484;
+}
+.social-item-icon.add {
+    background-color: #ff6550;
+}
+
+.social-detail{
+    padding-top: 16px;
+}
+
+.product-description{
+    padding-top: 32px;
+}
+
+.btn-desctiption-product {
+    border: none;
+    font-size: 15px;
+    padding: 6px 12px;
+    color: #3b5998;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #f2f2f2;
+}
+
+.btn-desctiption-product.active {
+    background-color: #e6400c;
+    color: #fff;
+}
+
+.btn-desctiption-product.ml-4 {
+    margin-left: -4px;
+}
+
+.wraper-description{
+    padding: 16px 0 24px 0;
+}
+
+.description-product-para{
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.product-rcm-heading{
+    color: #ff0000;
+    font-size: 20px;
+    font-weight: 400;
+    padding-top: 8px;
+}
+
+.product-rcm-container {
+    display: flex;
+    padding-top: 24px;
+}
+
+.product-rcm-item {
+    flex-basis: 25%;
+    margin: 0 8px;
+    background-color: #fff;
+    border: 1px solid #d7d7d7;
+    padding: 10px 6px 0 6px;
+}
+
+.product-rcm-name{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.product-rcm-name:hover {
+    color: #ff0000;
+}
+
+.product-rcm-img {
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+    display: flex;
+}
+
+.product-rcm-img img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.product-rcm-img img:hover {
+    transform: scale(1.28);
+}
+
+.zoom{
+    background-position: 50% 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    display: flex;
+    background-image: url('../../assets/images/imgsp.jpg');
+}
+
+.zoom img:hover {
+    opacity: 0;
+  }
+

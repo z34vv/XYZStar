@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block title %} Contact {% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="wraper-content">
+        <div class="contact-info">
+            <h3 class="contact-heading">THÔNG TIN LIÊN HỆ</h3>
+            <div class="wraper-contact">
+                <p class="wraper-contact-p"><span data-i18n="footer.address">Địa chỉ</span>: {{ Company.address }}</p>
+                <p class="wraper-contact-p">Phone: {{ Company.phone }}</p>
+                <p class="wraper-contact-p">Fax: {{ Company.fax }}</p>
+                <p class="wraper-contact-p">Email: {{ Company.email }}</p>
+            </div>
+        </div>
+        <div class="contact-map">
+            <div class="wrap-map-contact">
+                <!-- google map -->
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.1136699185886!2d136.90136329999999!3d35.2783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600375bf9bc90e21%3A0xa2db5cb0138111e9!2zWFlaU1RBUuagquW8j-S8muekvg!5e0!3m2!1svi!2sjp!4v1684674254231!5m2!1svi!2sjp"
+                        width="100%"
+                        height="380px"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+                <div class="child-address-detail-p">
+                    <span class="icon-close-map-2">&times;</span>
+                    <p class="child-add-name-2"><span data-i18n="footer.name">Tên công ty: </span> {{ Company.name }}
+                    </p>
+                    <p class="child-add-name-2">
+                        <span data-i18n="footer.address">Địa chỉ: </span> {{ Company.address }}
+                    </p>
+                    <p class="child-add-name-2"><span>Điện thoại: </span>{{ Company.phone }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3 class="form-contact-title">
+                FORM LIÊN HỆ
+            </h3>
+            <div class="form-container">
+                <div class="form-contact-1">
+                    <div class="form-contact-1-item">
+                        <label for="name" data-i18n="content.name">Tên*</label>
+                        <input type="text" id="name" placeholder="">
+                    </div>
+                    <div class="form-contact-1-item">
+                        <label for="address" span data-i18n="content.address">Địa chỉ*</label>
+                        <input type="text" id="address" placeholder="">
+                    </div>
+                    <div class="form-contact-1-item">
+                        <label for="mail" data-i18n="content.mail">Hộp thư*</label>
+                        <input type="text" id="mail" placeholder="">
+                    </div>
+                </div>
+                <div class="form-contact-2">
+                    <div class="form-contact-1-item">
+                        <label for="ct" data-i18n="content.content">Nội dung*</label>
+                        <textarea style="width: 100%" name="" id="ct" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-contact-1-item">
+                        <label for="code" data-i18n="content.verifyCode">Mã xác nhận*</label>
+                        <input type="text" id="code" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="form-button">
+                <button class="form-btn-submit">GỬI ĐI</button>
+                <button class="form-btn-submit">LÀM LẠI</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

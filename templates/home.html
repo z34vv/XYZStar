@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">ホーム</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'company' %}">会社案内</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'business' %}">事業内容</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'equips' %}">保有設備</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">お問い合わせ</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="c-mainimage p-mainimage">
+    <div class="c-mainimage__slider">
+        <div class="js-mainimage splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <div class="js-mainimage__cover p-mainimage__cover">
+                            <img decoding="async" src="{% static 'images/index-slide__picture01.jpg' %}" width="2000" height="1000"
+                                 alt="slide1">
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="js-mainimage__cover p-mainimage__cover">
+                            <img decoding="async" src="{% static 'images/index-slide__picture02.jpg' %}" width="2000" height="1000"
+                                 alt="slide2">
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="js-mainimage__cover p-mainimage__cover">
+                            <img decoding="async" src="{% static 'images/index-slide__picture03.jpg' %}" width="2000" height="1000"
+                                 alt="slide3">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="c-mainimage__text p-mainimage__text">
+            <div class="c-mainimage__copy p-mainimage__copy">
+                <h2 class="c-mainimage__catch p-mainimage__catch">
+                    <span data-aos="zoom-out" data-aos-delay="500">
+                        <img src="{% static 'images/index-mainimage__text.png' %}" alt="" width="960" height="360">
+                    </span>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="c-scrolldown"><span>SCROLL</span></div>
+</div>
+
+<div class="l-outer p-outer">
+    <div class="l-outer__liquid">
+        <div class="l-outer__main">
+            <div class="l-section l-section__clearance--bottom p-index__about">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__index1--light c-heading__margin" data-aos="fade-right"
+                        data-heading="About us"><span class="p-text__shadow--white">スターXYZの紹介</span></h3>
+
+                    <div class="u-space__devider--sm">
+                        <div class="row f-column__gap--sm">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-8 col-xxl-5">
+                                <p class="p-text__shadow--white" data-aos="fade-left">メカニカルネットワークスから創業した弊社は、<br>各種専用機・搬送機・治具などの設計製作を行なっております。<br>豊富なネットワーク・各分野のスペシャリストによる協力体制により、<br>設計〜据付までのワンストップ製作・特急対応・多品種少量生産・大量注文などお客様のどんなご要望にもお応えします。<br>モノづくりの便利屋として、<br>&ldquo;Do
+                                    Anything&rdquo; の精神で精一杯取り組んでまいります。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-space__devider--sm">
+                        <div class="c-button__width--330" data-aos="flip-up">
+                            <a href="{% url 'company' %}"
+                               class="c-button__link c-button__height--flat c-button__texture--multiply c-button__motion--right"><span
+                                    class="u-arrow--right">会社案内</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance u-bgc--lightgraycolor p-index__business">
+                <div class="container-lg">
+                    <div class="row f-column__gap--lg">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 order-1 order-lg-2 order-print-2">
+                            <h3 class="c-heading p-heading__index1--light c-heading__margin" data-aos="fade-right"
+                                data-heading="Business"><span class="p-text__shadow--white">事業内容</span></h3>
+
+                            <div class="u-space__devider--sm">
+                                <p class="p-text__shadow--white" data-aos="fade-left">XYZ Starでは、設計、機械加工、製缶、組立、電気設計、配線、試運転、調整、現場施工などの各工事分野に重点を置いております。
+                                </p>
+                            </div>
+                            <div class="u-space__devider--sm">
+                                <div class="c-button__width--330 justify-content-center justify-content-lg-start"
+                                     data-aos="flip-up">
+                                    <a href="{% url 'business' %}"
+                                       class="c-button__link c-button__height--flat c-button__texture--multiply c-button__motion--right"><span
+                                            class="u-arrow--right">事業内容</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 order-2 order-lg-1 order-print-1">
+                            <div class="p-image__extend--left p-image__trapezium--left" data-aos="fade-up">
+                                <div class="u-bg__cover u-image__ratio--xs-3x2 u-image__ratio--sm-3x2 u-image__ratio--md-3x2 u-image__ratio--lg-1x1 u-image__ratio--xl-3x2 u-image__ratio--xxl-3x2">
+                                    <img src="{% static 'images/index-business__picture01.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-index__equipments">
+                <div class="container-lg">
+                    <div class="row f-column__gap--lg">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 order-1 order-lg-1 order-print-1">
+                            <h3 class="c-heading p-heading__index1--light c-heading__margin" data-aos="fade-right"
+                                data-heading="Equipments"><span class="p-text__shadow--white">保有設備</span></h3>
+
+                            <div class="u-space__devider--sm">
+                                <p class="p-text__shadow--white" data-aos="fade-left">XYZ starが保有するデザインをご紹介します。 <br>ガントリー加工、5軸加工、大型缶生産も協力会社にて対応可能です。
+                                </p>
+                            </div>
+                            <div class="u-space__devider--sm">
+                                <div class="c-button__width--330 justify-content-center justify-content-lg-start"
+                                     data-aos="flip-up">
+                                    <a href="equipments.html"
+                                       class="c-button__link c-button__height--flat c-button__texture--multiply c-button__motion--right"><span
+                                            class="u-arrow--right">保有設備</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 order-2 order-lg-2 order-print-2">
+                            <div class="p-image__extend--right p-image__trapezium--right" data-aos="fade-up">
+                                <div class="u-bg__cover u-image__ratio--xs-3x2 u-image__ratio--sm-3x2 u-image__ratio--md-3x2 u-image__ratio--lg-1x1 u-image__ratio--xl-3x2 u-image__ratio--xxl-3x2">
+                                    <img src="{% static 'images/index-equipments__picture01.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-outer__side"></div>
+    </div>
+</div>
+{% endblock %}

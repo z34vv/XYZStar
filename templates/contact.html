@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{% url 'home' %}">ホーム</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'company' %}">会社案内</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'business' %}">事業内容</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'equips' %}">保有設備</a></li>
+<li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">お問い合わせ</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="c-pagetitle p-pagetitle">
+    <div class="c-pagetitle__image p-pagetitle__image"><img src="{% static 'images/contact-pagetitle.jpg' %}" width="2000" height="500"
+                                                            alt=""></div>
+    <h2 class="c-title" data-label="Contact">お問い合わせ</h2>
+</div>
+
+<div class="l-outer p-outer">
+    <div class="l-outer__liquid">
+        <div class="l-outer__main">
+            <div class="l-section l-section__clearance p-contact__inquiry">
+                <div class="container-lg" data-aos="fade-up">
+                    <div class="row f-column__gap--lg justify-content-center">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex">
+                            <div class="c-box--sm c-box__float u-bgc__white">
+                                <h3 class="c-box__heading--light">お電話でのお問い合わせ</h3>
+
+                                <div class="c-box__body">
+                                    <p class="c-phone--lg text-center c-label__phone"><span data-action="call">{{cpn_info.phone}}</span>
+                                    </p>
+                                    <hr class="u-hr--md">
+                                    <p class="c-form__recept">営業時間 8:00～17:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex">
+                            <div class="c-box--sm c-box__float u-bgc__white">
+                                <h3 class="c-box__heading--light">FAXでのお問い合わせ</h3>
+
+                                <div class="c-box__body">
+                                    <p class="c-phone--lg text-center c-label__facsimile">{{cpn_info.fax}}</p>
+                                    <hr class="u-hr--md">
+                                    <p class="c-form__recept">受付時間 24時間</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-contact__form">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light text-center c-heading__margin--first"
+                        data-heading="Mailform" data-aos="zoom-out"><span>メールでのお問い合わせ</span></h3>
+
+                    <p data-aos="fade-in">お問い合わせありがとうございます。内容を確認次第、ご連絡いたします。<br>ご連絡先情報の相違やシステムエラー等によってお返事ができない場合がございます。<br>しばらくお待ちいただいても返答がない場合には、お手数ですがお電話にてその旨お問い合わせください。
+                    </p>
+
+                    <p class="u-margin__bottom--md" data-aos="fade-in"><span class="c-form__required--image">必須</span>印は必須項目です。<br>未記入の場合は送信いただけませんので、ご了承ください。
+                    </p>
+
+                    <form method="post"
+                          enctype="multipart/form-data" data-enter-blocked="true" class="h-adr">
+                        {% csrf_token %}
+                        {% for key, value in form.errors.items %}
+                        {{value}}
+                        {% endfor %}
+                        <span class="p-country-name" style="display: none">Japan</span>
+
+                        <div class="u-space__devider--lg">
+                            <table class="c-table c-table__break--md c-table__line--horizontal c-th__vertical c-table__mode--light"
+                                   data-aos="fade-in">
+                                <tr>
+                                    <th><span class="c-form__required">お問い合わせ項目</span></th>
+                                    <td>
+                                        {% for radio in form.category %}
+                                        <div class="form-check form-check-inline">
+                                            {{ radio.tag }}
+                                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                                        </div>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>会社名</th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.company_name type="text" id="c-placeholder__companyname" placeholder="例：メカネット株式会社" %}
+                                            <label for="c-placeholder__companyname">例：XYZスターカンパニー</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span class="c-form__required">お名前</span></th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.name type="text" id="c-placeholder__name" placeholder="例：山田　太郎" %}
+                                            <label for="c-placeholder__name">例：山田　太郎</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>フリガナ</th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.Furigana type="text" id="c-placeholder__furigana" placeholder="例：ヤマダ　タロウ" %}
+                                            <label for="c-placeholder__furigana">例：ヤマダ　タロウ</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>郵便番号</th>
+                                    <td>
+                                        <div class="input-group c-form__width--md">
+                                            <div class="input-group-text">〒</div>
+                                            <div class="form-floating">
+                                                {% render_field form.zip_code type="text" id="c-placeholder__postal" placeholder="例：485-0059　半角入力" %}
+                                                <label for="c-placeholder__postal">例：485-0059　半角入力</label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>都道府県</th>
+                                    <td>
+                                        {{ form.province }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>市区町村</th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.city type="text" id="c-placeholder__city" placeholder="例：小牧市小木東" %}
+                                            <label for="c-placeholder__city">例：小牧市小木東</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>番地</th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.street_address type="text" id="c-placeholder__housenumber" placeholder="例：2-120-1" %}
+                                            <label for="c-placeholder__housenumber">例：2-120-1</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>建物名など</th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.building_name type="text" id="c-placeholder__building" placeholder="例：〇〇ビル" %}
+                                            <label for="c-placeholder__building">例：〇〇ビル</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span class="c-form__required">電話番号</span></th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.phone type="text" id="c-placeholder__phone" placeholder="例：0568-54-5879　半角入力　携帯可" %}
+                                            <label for="c-placeholder__phone">例：0568545879　半角入力　携帯可</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>FAX番号</th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.fax type="text" id="c-placeholder__facsimile" placeholder="例：0568-54-1159　半角入力" %}
+                                            <label for="c-placeholder__facsimile">例：0568541159　半角入力</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span class="c-form__required">メールアドレス</span></th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.email type="text" id="c-placeholder__email" placeholder="例：email@example.com　半角入力" %}
+                                            <label for="c-placeholder__email">例：email@example.com　半角入力</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span class="c-form__required">お問い合わせ内容</span></th>
+                                    <td>
+                                        <div class="form-floating">
+                                            {% render_field form.request_detail id="c-placeholder__textarea1" style="height: 12rem" %}
+                                            <label for="c-placeholder__textarea1">お問い合わせ内容をご記入ください</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="u-space__devider--lg">
+                            <h4 class="c-heading p-heading__page2--light" data-aos="fade-right"><strong
+                                    class="p-text__shadow--white c-heading__leftline">弊社からお客様にご連絡させていただく場合がございます。</strong></h4>
+
+                            <table class="c-table c-table__break--md c-table__line--horizontal c-th__vertical c-table__mode--light"
+                                   data-aos="fade-in">
+                                <tr>
+                                    <th>連絡方法</th>
+                                    <td>
+                                        {% for radio in form.contact_method %}
+                                        <div class="form-check form-check-inline">
+                                            {{radio.tag}}
+                                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                                        </div>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>連絡希望時間帯</th>
+                                    <td>
+                                        {% for radio in form.contact_time %}
+                                        <div class="form-check form-check-inline">
+                                            {{radio.tag}}
+                                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                                        </div>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="u-space__devider--lg">
+                            <div class="row f-column__gap--xs justify-content-center">
+                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 col-xl-4 col-xxl-4">
+                                    <button type="submit"
+                                            class="c-button__link c-button__texture--multiply c-button__height--flat c-button__motion--right"
+                                            data-aos="fade-in"><span class="u-arrow--right">入力内容を送信する</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="l-outer__side"></div>
+    </div>
+</div>
+{% endblock %}

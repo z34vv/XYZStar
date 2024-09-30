@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{% url 'home' %}">ホーム</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'company' %}">会社案内</a></li>
+<li class="nav-item"><a class="nav-link active" href="{% url 'business' %}">事業内容</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'equips' %}">保有設備</a></li>
+<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">お問い合わせ</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="c-pagetitle p-pagetitle">
+    <div class="c-pagetitle__image p-pagetitle__image">
+        <img src="{% static 'images/business-pagetitle.jpg' %}" width="2000" height="500" alt="">
+    </div>
+    <h2 class="c-title" data-label="Business">事業内容</h2>
+</div>
+
+<div class="l-outer p-outer">
+    <div class="l-outer__liquid">
+        <div class="l-outer__main">
+            <div class="l-section l-section__clearance p-business__main">
+                <div class="container-lg">
+                    {% for bsn in bsns %}
+                    {% with business=bsn.1 %}
+                    {% if bsn.0 %}
+                    <div class="u-space__devider--lg">
+                        <div class="row f-column__gap--lg">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 order-1 order-lg-1 order-print-1">
+                                <h3 class="c-heading p-heading__index1--light c-heading__margin" data-aos="fade-right"
+                                    data-heading="{{business.category}}"><span class="p-text__shadow--white">{{business.business}}</span></h3>
+                                <div class="u-space__devider--sm">
+                                    <p class="p-text__shadow--white" data-aos="fade-left">
+                                        {{business.describe}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 order-2 order-lg-2 order-print-2">
+                                <div class="p-image__extend--right p-image__trapezium--right" data-aos="fade-up">
+                                    <div class="u-bg__cover u-image__ratio--xs-3x2 u-image__ratio--sm-3x2 u-image__ratio--md-3x2 u-image__ratio--lg-1x1 u-image__ratio--xl-3x2 u-image__ratio--xxl-3x2">
+                                        <img src="{{MEDIA_URL}}/media/{{business.image}}" class="img-fluid mx-auto" alt=""
+                                             width="1200" height="800">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="u-space__devider--lg">
+                        <div class="row f-column__gap--lg">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 order-1 order-lg-2 order-print-2">
+                                <h3 class="c-heading p-heading__page1--light c-heading__margin" data-aos="fade-right"
+                                    data-heading="{{business.category}}"><span class="p-text__shadow--white">{{business.business}}</span>
+                                </h3>
+
+                                <div class="u-space__devider--sm">
+                                    <p class="p-text__shadow--white" data-aos="fade-left">
+                                        {{business.describe}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 order-2 order-lg-1 order-print-1">
+                                <div class="p-image__extend--left p-image__trapezium--left" data-aos="fade-up">
+                                    <div class="u-bg__cover u-image__ratio--xs-3x2 u-image__ratio--sm-3x2 u-image__ratio--md-3x2 u-image__ratio--lg-1x1 u-image__ratio--xl-3x2 u-image__ratio--xxl-3x2">
+                                        <img src="{{MEDIA_URL}}/media/{{business.image}}" class="img-fluid mx-auto"
+                                             alt="" width="1200" height="800">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-business__works">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--light text-center c-heading__margin--first"
+                        data-aos="fade-right" data-heading="Works"><span class="p-text__shadow--white">製作事例</span>
+                    </h3>
+                    <div class="row f-column__gap--sm">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+                            <div class="c-box--sm c-box__line--all u-bgc__white" data-aos="fade-up">
+                                <div class="c-box__image">
+                                    <img src="{% static 'images/business-works__picture01.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+                            <div class="c-box--sm c-box__line--all u-bgc__white" data-aos="fade-up">
+                                <div class="c-box__image">
+                                    <img src="{% static 'images/business-works__picture03.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+                            <div class="c-box--sm c-box__line--all u-bgc__white" data-aos="fade-up">
+                                <div class="c-box__image">
+                                    <img src="{% static 'images/business-works__picture04.jpg' %}" class="img-fluid mx-auto" alt=""
+                                         width="1200" height="800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-section l-section__clearance p-business__partners">
+                <div class="container-lg">
+                    <h3 class="c-heading p-heading__page1--dark text-center c-heading__margin--first"
+                        data-aos="fade-right" data-heading="Partners"><span>協力企業募集</span></h3>
+
+                    <div class="u-space__devider--sm">
+                        <p class="text-sm-center c-lead" data-aos="fade-left">XYZスターでは業務にご協力いただけるビジネスパートナーを募集しております。<br>メカネットと一緒に成長し、助け合える良い関係を築ける方であれば会社規模などは問いません。
+                        </p>
+                    </div>
+                    <div class="u-space__devider--sm" data-aos="fade-left">
+                        <p class="text-sm-center c-lead">ぜひ、電話かメールにてご相談ください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-outer__side"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+/* デバッグ情報を最前面に表示する
+-----------------------------------------------------------------------------*/
+.cake-debug, .cake-error{
+position:relative;
+z-index:2147483647;
+}
+
+.field-icon {
+  color: #555;
+  float: right;
+  margin-right: 10px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.ezm_htmlarea {
+  font-size: 16px;
+}
+
+.ezm_htmlarea * {
+  margin: 0;
+  padding: 0;
+}
+
+.ezm_htmlarea img {
+  max-width: 100%;
+}
+
+.ezm_htmlarea video {
+  max-width: 100%;
+}
+
+.note-video-clip {
+  max-width: 100%;
+}
+
+
