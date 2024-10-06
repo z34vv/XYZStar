@@ -18,16 +18,16 @@ class HomeView(View):
 
 class CompanyInfoView(View):
     def get(self, request):
-        cmn_info = CompanyInfo.objects.all()
-        if len(cmn_info) > 0:
-            cmn_info = cmn_info[0]
+        cpn_info = CompanyInfo.objects.all()
+        if len(cpn_info) > 0:
+            cmn_info = cpn_info[0]
 
         rcm_rq = RecruitmentRequirement.objects.all()
         if len(rcm_rq) > 0:
             rcm_rq = rcm_rq[0]
 
         job_vcc = JobVacancy.objects.all()
-        context = {'cmn_info': cmn_info,
+        context = {'cpn_info': cpn_info,
                    'rcm_rq': rcm_rq,
                    'job_vcc': job_vcc}
         return render(request, 'company.html', context)
@@ -44,7 +44,7 @@ class BusinessView(View):
             print(bsn.image)
         for bsn in business_lst:
             bsns.append([bsn.id % 2 == 0, bsn])
-        context = {'cmn_info': cpn_info,
+        context = {'cpn_info': cpn_info,
                    'bsns': bsns}
         return render(request, 'business.html', context)
 
