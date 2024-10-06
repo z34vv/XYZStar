@@ -9,10 +9,10 @@ from .forms import ContactForm
 # Create your views here.
 class HomeView(View):
     def get(self, request):
-        cmn_info = CompanyInfo.objects.all()
-        if len(cmn_info) > 0:
-            cmn_info = cmn_info[0]
-        context = {'cmn_info': cmn_info}
+        cpn_info = CompanyInfo.objects.all()
+        if len(cpn_info) > 0:
+            cpn_info = cpn_info[0]
+        context = {'cpn_info': cpn_info}
         return render(request, 'home.html', context)
 
 
@@ -20,7 +20,7 @@ class CompanyInfoView(View):
     def get(self, request):
         cpn_info = CompanyInfo.objects.all()
         if len(cpn_info) > 0:
-            cmn_info = cpn_info[0]
+            cpn_info = cpn_info[0]
 
         rcm_rq = RecruitmentRequirement.objects.all()
         if len(rcm_rq) > 0:

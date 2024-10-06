@@ -3,17 +3,17 @@ from django.db import models
 
 class CompanyInfo(models.Model):
     name = models.CharField(max_length=255)
-    delegate = models.CharField(max_length=255)
+    delegate = models.CharField(max_length=255, null=True, blank=True)
     formation = models.DateField()
     capital = models.BigIntegerField(default=0)
-    annual_revenue = models.BigIntegerField(default=0)
+    annual_revenue = models.CharField(max_length=50)
     address = models.TextField()
     zip_code = models.CharField(max_length=50, null=True, blank=True)
-    phone = models.CharField(max_length=10)
-    fax = models.CharField(max_length=10)
+    phone = models.CharField(max_length=12)
+    fax = models.CharField(max_length=12)
     employees_quantity = models.IntegerField(default=1)
     business = models.TextField()
-    delivery_record = models.TextField()
+    delivery_record = models.TextField(blank=True, null=True)
     objects = models.Manager()
 
     class Meta:
@@ -93,9 +93,9 @@ class Contact(models.Model):
 
     is_apply = models.BooleanField(default=False)
     contact_method_lst = ((0, '両方'), (1, '電話'), (2, 'メール'))
-    contact_method = models.IntegerField(choices=contact_method_lst, max_length=1, null=True, blank=True)
+    contact_method = models.IntegerField(choices=contact_method_lst, null=True, blank=True)
     contact_time_lst = ((0, 'いつでも'), (1, '9:00～12:00'), (2, '12:00～15:00'), (3, '15:00～18:00'), (4, '18:00～21:00'))
-    contact_time = models.IntegerField(choices=contact_time_lst, max_length=1, null=True, blank=True)
+    contact_time = models.IntegerField(choices=contact_time_lst, null=True, blank=True)
     objects = models.Manager()
 
     def get_address(self):
